@@ -3,7 +3,10 @@ const app = express();
 const mongoose = require('mongoose');
 var routes = require('./routes/routes');
 mongoose.set('strictQuery', false);
-
+var cors = require("cors")
+app.use(express.static(__dirname+'/views'))
+app.use(express.urlencoded({ extended: false }));
+app.use(cors())
 mongoose.connect("mongodb+srv://Eiraj:password1234@cluster0.bu3yarb.mongodb.net/wetogether",{useNewUrlParser: true,  useUnifiedTopology: true },function checkDb(error)
 
 {

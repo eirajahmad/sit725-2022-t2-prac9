@@ -1,3 +1,4 @@
+//to get data from backend
 var userService = require('./userService');
 
 var createUserControllerFn = async (req, res) => 
@@ -41,3 +42,4 @@ var loginUserControllerFn = async (req, res) => {
 }
 
 module.exports = { createUserControllerFn, loginUserControllerFn };
+
