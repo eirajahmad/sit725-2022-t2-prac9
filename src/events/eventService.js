@@ -32,21 +32,28 @@ module.exports.getEventService = (eventIdDetails)=>
 {
    return new Promise(function myFn(resolve, reject) 
    {
-      eventModel.filter({ postalcode: eventIdDetails.postalcode},function getresult(errorvalue, result)
+      eventModel.find({ postalcode: eventIdDetails.postalcode},function getresult(errorvalue, result)
       {
          if(errorvalue)
          {
-            reject({status: false, msg: "No Data"});
+            reject({status: false, msg: "Invaild Data"});
          }
          else
          {
             if(result !=undefined &&  result !=null)
             {
-               //get all data in array
+              
+               var data=JSON.stringify(result)
+               const dataArray = JSON.parse(data);
+              
+               for (const element of dataArray) {
+                  console.log(element);
+                }
+               resolve({status: true,msg: dataArray});
             }
             else
             {
-               reject({status: false,msg: "no data"});
+               reject({status: false,msg: "No data"});
             }
 
          }

@@ -27,13 +27,13 @@
     <!--mobile navigation bar start-->
     <div class="mobile_nav">
       <div class="nav_bar">
-        <img src="1.png" class="mobile_profile_image" alt="">
+        <img src="" class="mobile_profile_image" alt="">
         <i class="fa fa-bars nav_btn"></i>
       </div>
       <div class="mobile_nav_items">
-        <a href="#"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
-        <a href="#"><i class="fas fa-cogs"></i><span>Events</span></a>
-        <a href="#"><i class="fas fa-table"></i><span>FindBuddy</span></a>
+        <a href="localhost:9002/dashboard.html"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+        <a href="localhost:9002/findbuddy.html"><i class="fas fa-cogs"></i><span>Events</span></a>
+        <a href="localhost:9002/sevent.html"><i class="fas fa-table"></i><span>FindBuddy</span></a>
       
       </div>
     </div>
@@ -42,18 +42,19 @@
     <div class="sidebar">
       <div class="profile_info">
         <img src="images/profile.png" class="profile_image" alt="">
-        <h4>Eiraj</h4>
+        <h4 id="name"></h4>
       </div>
-      <a href="#"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
-      <a href="#"><i class="fas fa-cogs"></i><span>Events</span></a>
-      <a href="#"><i class="fas fa-table"></i><span>FindBuddy</span></a>
-   
+      <a href="./dashboard.html"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+      <a href="./event.html"><i class="fas fa-cogs"></i><span>Events</span></a>
+      <a href="./findbuddy.html"><i class="fas fa-table"></i><span>FindBuddy</span></a>
+    
     </div>
     <!--sidebar end-->
 
     <script type="text/javascript">
     
     $(document).ready(function(){
+      document.getElementById("name").innerHTML = localStorage.getItem("username");
       $('.logout_btn').click(function(){
         localStorage.clear();
         location.href = "http://localhost:9002/index.html"

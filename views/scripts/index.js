@@ -70,9 +70,22 @@ const Login = (loginData) => {
         data: loginData,
         type: 'POST',
         success: (result) => {
-            if(result.message=="User Validated Successfully"){
-                localStorage.setItem("username",'eiraj');
-                localStorage.setItem("email",'ahmadeiraj@gmail.com');
+            if(result.status==true){
+               
+                for (var key in result.message) {
+                    console.log(key);
+                    if(key=="firstname"){
+                    localStorage.setItem("username",result.message[key]);
+                        
+                    }
+                    if(key=="email"){
+                        localStorage.setItem("email",result.message[key]);
+               
+                        
+                    }
+                   
+                }   
+              
                 localStorage.setItem("postalcode",'3045');
                 location.href = "http://localhost:9002/dashboard.html"
             }else{

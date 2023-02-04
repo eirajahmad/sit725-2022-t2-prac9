@@ -47,7 +47,7 @@ module.exports.getFindBuddyService = (findBuddyIdDetails)=>
                for (const element of dataArray) {
                   console.log(element);
                 }
-               resolve({status: true,msg: "data is there"});
+               resolve({status: true,msg: dataArray});
             }
             else
             {

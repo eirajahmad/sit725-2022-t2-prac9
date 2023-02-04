@@ -45,8 +45,10 @@ module.exports.loginuserDBService = (userDetails)=>
                var decrypted = encryptor.decrypt(result.password);
 
                if(decrypted== userDetails.password)
-               {
-                  resolve({status: true,msg: "User Validated Successfully"});
+               {  console.log("login"+result)
+               var data=JSON.stringify(result)
+               const dataArray = JSON.parse(data);
+                  resolve({status: true,msg: dataArray});
                }
                else
                {
