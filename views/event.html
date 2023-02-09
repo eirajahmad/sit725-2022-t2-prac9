@@ -21,10 +21,17 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
       <link rel="stylesheet" href="./css/findbuddy.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
-  
+       <style>
+        card-header {
+     padding: 0px; 
+    margin-bottom: 0;
+    background-color: rgba(0,0,0,.03);
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+       </style>
       
    </head>
-   <body  >
+   <body >
     <div style="margin-left: 20%;">
     <button style="margin-top: 7%;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
       Add Event
@@ -129,7 +136,16 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     })
     const addCards = (items) => {
     items.forEach(item => {
-        let itemToAppend = '<div class="card col-md-4"><div class="card-text"><div class="title-total"><div class="title">'+item.from+'</div><h2>'+item.title+'</h2><div class="desc">'+item.description+'</div><div class="row"><button><i class="far fa-heart"></i></button><button><i class="far fa-envelope"></i></button><button><i class="fas fa-user-friends"></i></button></div></div></div> </div>';
+      if(item.title=="Dancing"){
+         item.imageEvent="https://media.istockphoto.com/id/1267332085/photo/stylish-man-and-woman-dancing-hip-hop-in-bright-clothes-on-gradient-background-at-dance-hall.jpg?s=612x612&w=0&k=20&c=1gekhO1digiwDXAJBhLZFVUvqKv_2Nsy1UX-8SlSvCM="
+      }else if (item.title=="Football"){
+         item.imageEvent="https://www.aljazeera.com/wp-content/uploads/2022/11/2022-04-20T202058Z_1188430601_UP1EI4K1KIWO1_RTRMADP_3_SOCCER-ENGLAND-CHE-ARS-REPORT.jpg?resize=1800%2C1800"
+      }else if (item.title=="Christmas"){
+         item.imageEvent="https://images.unsplash.com/photo-1575493035843-9560639476d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fG1lcnJ5JTIwY2hyaXN0bWFzfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
+      }else{
+       item.imageEvent="https://media.istockphoto.com/id/1158027853/photo/team-together-we-can-achieve-more.jpg?s=612x612&w=0&k=20&c=wW9pc1cG2erIura57JdNedRL77xXhXeQ4ctJkffIs60="
+      }
+      let itemToAppend = '<div class="container col-md-4"><div class="card"><div class="card-header style="padding:0px;"><img style="border-start-end-radius: 10px;border-start-start-radius: 10px;height: 300px;width:300px;" src='+item.imageEvent+'><div class="card-text"><div class="title-total"><div class="title">'+item.from+'</div><h2>'+item.title+'</h2><div class="desc">'+item.description+'<div class="row"><button><i class="far fa-heart"></i></button><button><i class="far fa-envelope"></i></button><button><i class="fas fa-user-friends"></i></button><button type="button" class="btn btn-outline-info" style="border-radius: 10px;">RSVP</button></div></div></div> </div>'
       $("#card-section").append(itemToAppend)
     });
 }

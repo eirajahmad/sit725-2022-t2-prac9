@@ -25,6 +25,39 @@ catch(err)
 }
 }
 
+var deleteFindBuddy = async (req, res) => {
+    var result = null;
+    try {
+        result = await findBuddyService.deleteFindBuddyService(req.body);
+        if (result.status) {
+            res.send({ "status": true, "message": result.msg });
+        } else {
+            res.send({ "status": false, "message": result.msg });
+        }
+
+    } catch (error) {
+        console.log(error);
+        res.send({ "status": false, "message": error.msg });
+    }
+}
+
+var updateFindBuddy = async (req, res) => 
+{
+    var result = null;
+    try {
+        result = await findBuddyService.updateFindBuddyService(req.body);
+        if (result.status) {
+            res.send({ "status": true, "message": result.msg });
+        } else {
+            res.send({ "status": false, "message": result.msg });
+        }
+
+    } catch (error) {
+        console.log(error);
+        res.send({ "status": false, "message": error.msg });
+    }
+}
+
 var getBuddy = async (req, res) => {
     var result = null;
     try {
@@ -40,6 +73,5 @@ var getBuddy = async (req, res) => {
         res.send({ "status": false, "message": error.msg });
     }
 }
-
-module.exports = { sendBuddy, getBuddy };
+module.exports = { sendBuddy, getBuddy,deleteFindBuddy,updateFindBuddy };
 

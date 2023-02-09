@@ -15,4 +15,7 @@ router.route('/user/createEvent').post(eventController.sendEvent);
 //find buddy api
 router.route('/user/findbuddy').post(findBuddyController.getBuddy);
 router.route('/user/createFindbuddy').post(findBuddyController.sendBuddy);
+router.route('/user/Deletefindbuddy').post(findBuddyController.deleteFindBuddy);
+router.route('/user/Updatefindbuddy').put(findBuddyController.updateFindBuddy);
+
 module.exports = router;

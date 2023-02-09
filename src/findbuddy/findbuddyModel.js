@@ -22,7 +22,12 @@ var findbuddySchema = new Schema({
     postalcode: {
         type: String,
         required: true
+    },
+    id: {
+        type: String,
+        required: true
     }
+
 
 });
 

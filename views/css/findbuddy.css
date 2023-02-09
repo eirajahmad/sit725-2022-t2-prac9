@@ -55,9 +55,8 @@ body {
  
 }
 
-.title-total {
-  padding: 2.5em 1.5em 1.5em 1.5em;
-}
+/* .title-total {
+  /* padding: 2.5em 1.5em 1.5em 1.5em; */ 
 
 path {
   fill: white;
@@ -97,3 +96,15 @@ header{
     top: 0;
     height: 70px;
   }
+  .card-image img {
+    max-height: 100%;
+    max-width: 100%;
+    border-radius: 8px 8px 0px 0;
+}
+.card-header {
+  /* padding: 0.75rem 1.25rem; */
+  margin-bottom: 0;
+  background-color: rgba(0,0,0,.03);
+  border-bottom: 1px solid rgba(0,0,0,.125);
+}
+

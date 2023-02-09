@@ -17,9 +17,9 @@ const submitData = () => {
    
     formData.title = title.value;
     formData.description = description.value;
-    formData.from="eiraj";
-    formData.createdDate="12/10/2023"
-    formData.postalcode="3043"
+    formData.from=localStorage.getItem("username");
+    formData.createdDate=new Date().toISOString().slice(0, 10)
+    formData.postalcode=localStorage.getItem("postalcode")
     
      
    

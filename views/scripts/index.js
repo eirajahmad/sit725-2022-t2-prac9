@@ -86,7 +86,7 @@ const Login = (loginData) => {
                    
                 }   
               
-                localStorage.setItem("postalcode",'3045');
+                localStorage.setItem("postalcode",'3043');
                 location.href = "http://localhost:9002/dashboard.html"
             }else{
                 alert(result.message);

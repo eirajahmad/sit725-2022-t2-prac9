@@ -6,7 +6,7 @@ module.exports.createFindBuddyDBService = (findBuddyDetails) => {
    return new Promise(function myFn(resolve, reject) {
      
        var findbuddyModelData = new findbuddyModel();
-
+       findbuddyModelData.id="0";
        findbuddyModelData.title = findBuddyDetails.title;
        findbuddyModelData.description = findBuddyDetails.description;
        findbuddyModelData.from = findBuddyDetails.from;
@@ -59,4 +59,60 @@ module.exports.getFindBuddyService = (findBuddyIdDetails)=>
       });
       
    });
+
+   
+}
+module.exports.deleteFindBuddyService = (findBuddyDetails)=> 
+{
+   return new Promise(function myFn(resolve, reject) 
+   {
+      var findbuddyModelData = new findbuddyModel();
+
+      findbuddyModelData.id = findBuddyDetails.id;
+     
+     
+     console.log("findbuddyModelData"+findbuddyModelData.title)
+     findbuddyModelData.deleteOne({_id: req.params.id}).then(
+      () => {
+        res.status(200).json({
+          message: 'Deleted!'
+        });
+      }
+    ).catch(
+      (error) => {
+        res.status(400).json({
+          error: error
+        });
+      }
+    );
+      
+   });
+
+}
+module.exports.updateFindBuddyService = (findBuddyDetails)=> 
+{
+   return new Promise(function myFn(resolve, reject) 
+   {
+      var findbuddyModelData = new findbuddyModel();
+
+       findbuddyModelData.title = findBuddyDetails.title;
+       findbuddyModelData.description = findBuddyDetails.description;
+       findbuddyModelData.from = findBuddyDetails.from;
+       findbuddyModelData.createdDate = findBuddyDetails.createdDate;
+       findbuddyModelData.postalcode = findBuddyDetails.postalcode;
+      
+      console.log("findbuddyModelData"+findbuddyModelData.title)
+      findbuddyModelData.findByIdAndUpdate(findbuddyModelData.id, findbuddyModelData, function(err, updatedData){
+         if(err){
+                  console.log(err)
+      }
+         else {
+                  console.log(updatedData)
+                  //res.redirect or res.send whatever you want to do
+     }
+  });
+      
+   });
+
+   
 }
